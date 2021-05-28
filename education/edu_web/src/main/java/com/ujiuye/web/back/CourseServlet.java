@@ -18,6 +18,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.File;
 import java.lang.reflect.InvocationTargetException;
+import java.util.List;
 import java.util.Map;
 
 @WebServlet("/courses")
@@ -141,6 +142,14 @@ public class CourseServlet extends BaseServlet {
             vo = new ResuletVo(500, "添加明细失败", null);
         }
         JsonUtils.objToJson(vo,response);
+    }
+
+    public void findCourseNames(HttpServletRequest request,HttpServletResponse response){
+
+         //调用业务
+         List<Course> list=  service.findCourseNames();
+        //响应处理结果
+         JsonUtils.objToJson(list,response);
     }
 
 }

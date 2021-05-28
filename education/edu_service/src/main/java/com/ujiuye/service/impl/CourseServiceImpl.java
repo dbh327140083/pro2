@@ -78,4 +78,12 @@ public class CourseServiceImpl implements CourseService {
 
         return dao.update(sql,c.getName(),c.getType(),c.getUrl(),c.getStart_data(),c.getCid());
     }
+
+    @Override
+    public List<Course> findCourseNames() {
+
+        String sql = "select * from course";
+
+        return dao.getListEntity(sql,Course.class);
+    }
 }

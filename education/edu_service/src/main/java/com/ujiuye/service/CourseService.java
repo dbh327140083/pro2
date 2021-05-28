@@ -4,6 +4,8 @@ import com.ujiuye.entity.Course;
 import com.ujiuye.entity.Coursedetail;
 import com.ujiuye.utils.PageBean;
 
+import java.util.List;
+
 public interface CourseService {
     /*
         添加课程业务
@@ -25,4 +27,8 @@ public interface CourseService {
         添加课程明细
      */
     int insertCourseDetail(Coursedetail coursedetail);
+    /*
+        查询所有的课程信息
+     */
+    List<Course> findCourseNames();
 }
