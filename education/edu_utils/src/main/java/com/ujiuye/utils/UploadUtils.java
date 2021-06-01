@@ -23,7 +23,7 @@ public class UploadUtils {
             String fileName = part.getSubmittedFileName();
             //重命名文件名  sda12-dsad1-adasjavaWeb.jpg
             fileName= UUID.randomUUID()+fileName;
-            File file = new File("D:/x_upload");
+            File file = new File("D:/xm_upload");
             if(!file.exists()){
                 //如果文件夹不存在
                 file.mkdir();//创建文件夹

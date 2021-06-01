@@ -25,4 +25,16 @@ public interface UserService {
         更新用户业务
      */
     int updateUser(User user);
+    /*
+        校验手机号业务
+     */
+    User testPhone(String phone);
+    /*
+        注册业务
+     */
+    int register(User user);
+    /*
+        小优课堂登录业务
+     */
+    User login_Before(String phone, String pwd);
 }

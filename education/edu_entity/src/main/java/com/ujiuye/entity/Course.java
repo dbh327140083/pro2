@@ -1,6 +1,8 @@
 package com.ujiuye.entity;
 
 
+import java.util.List;
+
 public class Course {
 
   private int cid; //课程编号
@@ -13,10 +15,20 @@ public class Course {
   private int status;//课程状态  0未上架 1 上架 2下架
   private String createTime; //课程创建时间
 
+  private List<Coursedetail> list;
+
+  public List<Coursedetail> getList() {
+    return list;
+  }
+
+  public void setList(List<Coursedetail> list) {
+    this.list = list;
+  }
+
   public Course() {
   }
 
-  public Course(int cid, String courseName, String descs, int courseType, String courseImage, String courseVideo, double coursePrice, int status, String createTime) {
+  public Course(int cid, String courseName, String descs, int courseType, String courseImage, String courseVideo, double coursePrice, int status, String createTime, List<Coursedetail> list) {
     this.cid = cid;
     this.courseName = courseName;
     this.descs = descs;
@@ -26,6 +38,7 @@ public class Course {
     this.coursePrice = coursePrice;
     this.status = status;
     this.createTime = createTime;
+    this.list = list;
   }
 
   public int getCid() {

@@ -77,4 +77,24 @@ public class UserServiceImpl implements UserService {
         Object arr[] ={u.getName(),u.getPhone(),u.getAge(),u.getStatus(),u.getUsername(),u.getPassword(),u.getStatus(),new Date(),u.getRole(),u.getPicture(),u.getUid()};
         return dao.update(sql,arr);
     }
+
+    @Override
+    public User testPhone(String phone) {
+        String sql = "select * from user where phone =?";
+        return dao.getEntity(sql,User.class,phone);
+    }
+
+    @Override
+    public int register(User u) {
+
+        String sql = "insert into user values(null,?,?,?,?,?,?,?,?,?,?) ";
+
+        return dao.update(sql,u.getName(),u.getPhone(),u.getAge(),u.getSex(),u.getUsername(),u.getPassword(),u.getStatus(),new Date(),u.getRole(),u.getPicture());
+    }
+
+    @Override
+    public User login_Before(String phone, String pwd) {
+        String sql = "select * from user where phone =? and password =?";
+        return dao.getEntity(sql,User.class,phone,pwd);
+    }
 }

@@ -20,6 +20,9 @@ public class LoginFilter2  implements Filter {
         HttpServletResponse response=(HttpServletResponse) servletResponse;
 
         HttpSession session = request.getSession();
+        //请求来源  Referer: http://127.0.0.1:5501/
+        String referer = request.getHeader("Referer");
+
         //获取到用户
         User user =(User) session.getAttribute("user");
         if (user==null) {
@@ -28,7 +31,7 @@ public class LoginFilter2  implements Filter {
             //http://localhost/edu/code
             //获取不包含端口的请求路径
             String requestURI = request.getRequestURI();//   /edu/code
-            if("login".equals(method) || "findUser".equals(method) || "loginOut".equals(method) || requestURI.contains("code")){
+            if(referer.contains("5501") ||  "login".equals(method) || "findUser".equals(method) || "loginOut".equals(method) || requestURI.contains("code")){
                 //放行
                 filterChain.doFilter(request,response);
             }else{
